@@ -1,84 +1,54 @@
 container:
   type: HtmlTemplate
-  properties: {html: '@theme:standard-page.html'}
+  properties: {html: '@theme:standard-page.html', background: '#1b1b1d', visible: true}
+  data_bindings:
+  - {property: border, code: 'self.item['''']', writeback: false}
 components:
 - type: ColumnPanel
-  properties: {col_widths: '{}'}
+  properties: {col_widths: '{}', visible: true}
   name: content_panel
   layout_properties: {slot: default}
   components:
+  - type: Label
+    properties: {role: headline, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 100', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Inicie sesion para navegar}
+    name: label_1
+    layout_properties: {grid_position: 'JFVMUJ,YFISIG'}
   - type: ColumnPanel
-    properties: {role: card, col_widths: '{}'}
+    properties: {role: card, col_widths: '{}', wrap_on: mobile, spacing_above: small, col_spacing: small, background: '#1b1b1d'}
     name: card_1
-    layout_properties: {grid_position: 'OGJZJD,CMXRPA'}
+    layout_properties: {grid_position: 'TJQEVZ,ZPWQXV'}
     components:
     - type: Label
-      properties: {role: headline, bold: true, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: Feedback Form}
-      name: label_1
-      layout_properties: {grid_position: 'IEVAXK,QCCFZP'}
-    - type: Label
-      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Name:'}
+      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Email:'}
       name: label_2
-      layout_properties: {grid_position: 'ROOKHV,WBMCVD'}
+      layout_properties: {grid_position: 'NNAPJY,VHEHKB'}
     - type: TextBox
-      properties: {}
-      name: name_box
-      layout_properties: {grid_position: 'ROOKHV,CPYUWC'}
-    - type: Label
-      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Email:'}
-      name: label_3
-      layout_properties: {grid_position: 'ICXUVK,HQIARV'}
-    - type: TextBox
-      properties: {}
+      properties: {align: left, background: 'theme:Gray 50', enabled: true}
       name: email_box
-      layout_properties: {grid_position: 'ICXUVK,WWAASA'}
+      layout_properties: {grid_position: 'WQJXMD,ARAMYP'}
     - type: Label
-      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, font_size: null, tooltip: '', text: 'Feedback:'}
-      name: label_4
-      layout_properties: {grid_position: 'MBANSN,DSAPWS'}
-    - type: TextArea
-      properties: {}
-      name: feedback_box
-      layout_properties: {grid_position: 'VBRMEF,GFZMQR'}
+      properties: {role: null, bold: false, align: left, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Gray 50', spacing_below: small, visible: true, border: 'yes', italic: false, font_size: null, tooltip: '', text: 'Contraseña:'}
+      name: label_3
+      layout_properties: {grid_position: 'NUZOPH,ETTVUP'}
+    - name: passwd_box
+      properties: {hide_text: true, background: 'theme:Gray 50'}
+      type: TextBox
+      layout_properties: {grid_position: 'MIEYQS,MCOROQ'}
+      data_bindings: []
+      event_bindings: {pressed_enter: passwd_box_pressed_enter}
     - type: Button
-      properties: {role: primary-color, bold: false, align: center, spacing_above: small, background: '', icon: '', underline: false, font: '', icon_align: left, foreground: '', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Submit}
+      properties: {role: null, bold: false, align: center, spacing_above: small, background: '#81bdee', icon: '', underline: false, font: '', icon_align: left, foreground: 'theme:Black', spacing_below: small, visible: true, border: '', italic: false, enabled: true, font_size: null, tooltip: '', text: Ingresar}
       name: submit_button
       layout_properties: {grid_position: 'MHBKKL,GWGQWM'}
       event_bindings: {click: submit_button_click}
-  - type: RichText
-    properties:
-      role: sample-app-info
-      format: markdown
-      align: left
-      spacing_above: small
-      content: |-
-        #### Hi there!
-
-        This is Anvil's **drag-and-drop designer**. Click on a component to select it and edit its properties, or drag and drop a new component from the toolbox.
-
-        **This app is ready to run!** If you enter some feedback and click "submit", you'll receive an email. To try it out, click ![Run](_/theme/run-button.png) up at the top.
-
-        To see the **Python code** for this form, double-click the `SUBMIT` button, or select ![code](_/theme/code-button.png) in the toolbar above.
-
-        Want more help? Check out the tutorials on the Anvil website!
-      background: ''
-      font: ''
-      foreground: ''
-      spacing_below: small
-      visible: true
-      border: ''
-      enable_slots: true
-      font_size: null
-      tooltip: ''
-      data: null
-    name: sample_app_description
-    layout_properties: {grid_position: 'CUSAQI,LVACLQ'}
 - type: FlowPanel
   properties: {}
   name: navbar_links
   layout_properties: {slot: nav-right}
-- name: title_lbl
-  properties: {text: Feedback}
-  type: Label
+- name: image_1
+  properties: {display_mode: original_size, source: _/theme/psnal.png, visible: true, background: '#1b1b1d'}
+  type: Image
   layout_properties: {slot: title}
 is_package: true
+custom_component: true
+custom_component_container: true

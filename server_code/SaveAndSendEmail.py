@@ -7,13 +7,13 @@ from datetime import datetime
 
 
 @anvil.server.callable
-def add_feedback(name, email, feedback):
+def add_feedback(name, email):
   # This function is called from HomeForm when the user clicks "SUBMIT".
 
   # We use Anvil's built-in Data Tables to save the feedback.
   # You can find your Data Tables in the navigation on the left.
   app_tables.feedback.add_row(
-    name=name, email=email, feedback=feedback, created=datetime.now()
+    name=name, email=email, created=datetime.now()
   )
 
   # Now we send an email to you, the app's author!
@@ -24,9 +24,7 @@ def add_feedback(name, email, feedback):
     
     Name: {}
     Email address: {}
-    Feedback:
-    {}
-    """.format(name, email, feedback),
+    """.format(name, email),
   )
 
   # Pretty simple, huh?
