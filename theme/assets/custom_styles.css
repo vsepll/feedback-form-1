@@ -1,0 +1,48 @@
+/* custom_styles.css */
+
+/* Custom styles for the login card */
+.custom-card {
+  width: 100px; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the card horizontally */
+  padding: 20px;
+  background-color: #1e1e1e; /* Adjust background color to match your design */
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  color: #fff; /* Text color */
+}
+
+/* Custom styles for the input fields */
+.custom-input {
+  width: calc(100% - 20px); /* Adjust width */
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #444;
+  background-color: #2e2e2e; /* Adjust input background color */
+  color: #fff; /* Adjust text color */
+}
+
+/* Custom styles for the buttons */
+.custom-button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: none;
+  border-radius: 5px;
+  background-color: #3a75d8; /* Adjust button color */
+  color: #fff; /* Adjust button text color */
+  cursor: pointer;
+}
+
+/* Style for the secondary text and links */
+.custom-secondary-text, .custom-link {
+  color: #b0b0b0;
+  text-align: center;
+  display: block;
+  margin: 10px 0;
+  text-decoration: none; /* Remove underline from links */
+}
+
+.custom-secondary-text {
+  margin-top: 20px; /* Add space above secondary text */
+}
